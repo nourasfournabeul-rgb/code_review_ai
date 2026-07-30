@@ -38,7 +38,7 @@ Reponds en francais.
 Code source ({language}) :
 {code}
 """,
-    "mauvaises_pratiques": lambda code, language: f"""Tu es un expert en qualite de code et securite logicielle, tous langages confondus.
+    "Mauvaises_pratiques": lambda code, language: f"""Tu es un expert en qualite de code et securite logicielle, tous langages confondus.
 Analyse le code source suivant ({language}) et verifie les points suivants :
 - Convention de nommage (classes, fonctions, variables) et leur coherence dans tout le fichier
 - Utilisation de noms qui entrent en conflit avec des mots-cles ou noms reserves du langage

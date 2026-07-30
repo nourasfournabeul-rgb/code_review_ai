@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classement de prompts</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+</head>
+
+<body>
+    <!-- MENU DE NAVIGATION -->
+    <div class="menu-container">
+        <button id="btn-menu" class="menu-button" title="Ouvrir le menu">
+            ☰
+        </button>
+
+        <div id="menu-dropdown" class="menu-dropdown">
+            <a href="/">Revue de code</a>
+            <a href="/prompts">Classement des prompts</a>
+        </div>
+    </div>
+
+    <div class="app-shell">
+        <header>
+            <h1>Classement de prompts</h1>
+
+            <p>
+                Saisissez plusieurs variantes d'un prompt, comparez-les par paires
+                et obtenez un classement automatique selon la qualité des prompts.
+            </p>
+        </header>
+
+        <main>
+            <form id="classement-form">
+                <!-- MODÈLE JUGE -->
+                <label for="modele-juge">
+                    Modèle juge
+                </label>
+
+                <select id="modele-juge">
+                    <option value="qwen2.5" selected>
+                        Qwen 2.5
+                    </option>
+
+                    <option value="llama3.2">
+                        Llama 3.2
+                    </option>
+
+                    <option value="gemma2">
+                        Gemma 2
+                    </option>
+                </select>
+
+                <!-- VARIANTES DE PROMPTS -->
+                <div id="zone-prompts">
+                    <label>
+                        Variante de prompt #1
+                    </label>
+
+                    <textarea
+                        class="prompt-variant"
+                        rows="4"
+                        placeholder="Colle ta version du prompt ici..."
+                    ></textarea>
+
+                    <label>
+                        Variante de prompt #2
+                    </label>
+
+                    <textarea
+                        class="prompt-variant"
+                        rows="4"
+                        placeholder="Colle ta version du prompt ici..."
+                    ></textarea>
+                </div>
+
+                <!-- BOUTONS -->
+                <div class="actions">
+                    <button
+                        type="button"
+                        id="btn-ajouter-variante"
+                    >
+                        + Ajouter une variante
+                    </button>
+
+                    <button
+                        type="submit"
+                        id="btn-lancer-classement"
+                    >
+                        Lancer le classement
+                    </button>
+                </div>
+            </form>
+
+            <!-- PROGRESSION -->
+            <p
+                id="zone-progression"
+                class="progression"
+            ></p>
+
+            <!-- RÉSULTATS -->
+            <section class="resultats">
+                <h2>Résultat</h2>
+
+                <div
+                    id="zone-resultats-variantes"
+                    class="comparatif-grid"
+                ></div>
+
+                <div id="zone-classement"></div>
+            </section>
+            <!-- CLASSIFICATION DU PROMPT GAGNANT -->
+
+            <section id="zone-classification" hidden>
+
+                <h2>Classification automatique</h2>
+
+                    <div id="categorie-proposee">
+
+                    </div>
+
+            </section>
+
+
+            <!-- ADOPTION DU PROMPT -->
+
+            <!-- TEST DU PROMPT GAGNANT -->
+
+            <section id="zone-adoption" hidden>
+
+                <div class="actions">
+
+                    <button
+                        id="btn-tester"
+                        type="button"
+                    >
+                        Tester
+                    </button>
+
+                </div>
+
+
+                <p id="message-adoption"></p>
+
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/prompts.js"></script>
+</body>
+</html>

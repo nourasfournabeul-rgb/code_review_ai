@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion — Assistant IA de revue de code</title>
+
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+
+</head>
+
+<body class="login-page">
+
+<div class="login-shell">
+
+    <section class="login-form-panel">
+
+        <div class="login-form-card">
+
+            <header class="login-header">
+                <h1>Assistant IA de revue de code</h1>
+                <p>Entrez vos identifiants pour continuer.</p>
+            </header>
+
+            <form id="login-form" novalidate>
+
+                <label for="username">
+                    Nom d'utilisateur
+                </label>
+
+                <input
+                    type="text"
+                    id="username"
+                    autocomplete="username"
+                    required
+                >
+
+                <label for="password">
+                    Mot de passe
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <button type="submit">
+                    Se connecter
+                </button>
+
+            </form>
+
+            <div id="message-login" role="alert"></div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script src="/static/login.js"></script>
+
+</body>
+</html>

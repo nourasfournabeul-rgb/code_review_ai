@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assistant IA de revue de code</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
+</head>
+
+<body>
+   <!-- MENU DE NAVIGATION -->
+      <div class="menu-container">
+        <button id="menu-button" class="menu-button" title="Ouvrir le menu">
+            ☰
+        </button>
+
+        <div id="menu-dropdown" class="menu-dropdown">
+            <a href="/">Revue de code</a>
+            <a href="/prompts">Classement des prompts</a>
+        </div>
+      </div>
+<div class="app-shell">
+
+    <div id="message-test-prompt" class="message-test" hidden></div>
+
+    <header>
+    <h1>Assistant IA de revue de code</h1>
+
+    <p>
+      Importez un fichier source, choisissez le modèle et le type
+      d'analyse souhaité.
+    </p>
+  </header>
+
+  <main>
+
+    <form id="analyse-form" enctype="multipart/form-data">
+
+      <!-- ======================== -->
+      <!-- Choix du fichier          -->
+      <!-- ======================== -->
+
+      <label for="fichier">
+        Fichier source
+      </label>
+
+      <div class="file-input-wrapper">
+
+        <span id="nom-fichier">
+          Aucun fichier choisi
+        </span>
+
+        <label for="fichier" class="file-button">
+          Choisir un fichier
+        </label>
+
+        <input
+          type="file"
+          id="fichier"
+          name="fichier"
+          accept=".py,.js,.ts,.java,.cpp,.c,.cs,.php,.rb,.go"
+          hidden
+          required
+        />
+
+      </div>
+
+      <!-- ======================== -->
+      <!-- Choix du modèle           -->
+      <!-- ======================== -->
+
+      <label for="modele">
+        Modèle IA
+      </label>
+
+      <select id="modele">
+
+        <option value="llama3.2">
+          Llama 3.2
+        </option>
+
+        <option value="gemma2">
+          Gemma2
+        </option>
+
+        <option value="both">
+          Comparer Llama 3.2 et Gemma2
+        </option>
+
+      </select>
+
+      <!-- ======================== -->
+      <!-- Modèle juge               -->
+      <!-- ======================== -->
+
+      <div id="juge-container" hidden>
+
+        <label for="modele-juge">
+          Modèle juge
+        </label>
+
+        <select id="modele-juge">
+
+          <option value="qwen2.5" selected>
+            Qwen 2.5
+          </option>
+
+        </select>
+
+      </div>
+
+      <!-- ======================== -->
+      <!-- Boutons                   -->
+      <!-- ======================== -->
+
+      <div class="actions">
+
+        <button
+          type="submit"
+          formaction="/expliquer"
+        >
+          Expliquer
+        </button>
+
+        <button
+          type="submit"
+          formaction="/mauvaises-pratiques"
+        >
+          Mauvaises pratiques
+        </button>
+
+        <button
+          type="submit"
+          formaction="/ameliorations"
+        >
+          Améliorations
+        </button>
+
+        <button
+          type="submit"
+          formaction="/resume"
+        >
+          Résumé
+        </button>
+
+      </div>
+
+    </form>
+    
+    <!-- ============================ -->
+    <!-- Résultats                    -->
+    <!-- ============================ -->
+
+    <section class="resultats">
+
+      <h2>Résultat</h2>
+
+      <!-- ============================ -->
+      <!-- Résultat simple              -->
+      <!-- ============================ -->
+
+      <div id="resultat-simple">
+
+        <h3 id="resultat-simple-titre">
+          Résultat
+        </h3>
+
+        <pre
+          id="resultat"
+          class="resultat"
+        ></pre>
+
+      </div>
+
+      <!-- ============================ -->
+      <!-- Comparatif                   -->
+      <!-- ============================ -->
+
+      <div
+        id="resultat-comparatif"
+        class="comparatif-grid"
+        hidden
+      >
+
+        <div>
+
+          <h3>
+            Llama 3.2
+          </h3>
+
+          <pre
+            id="resultat-llama"
+            class="resultat"
+          ></pre>
+
+        </div>
+
+        <div>
+
+          <h3>
+            Gemma2
+          </h3>
+
+          <pre
+            id="resultat-gemma"
+            class="resultat"
+          ></pre>
+
+        </div>
+
+      </div>
+
+      <!-- ============================ -->
+      <!-- Verdict du juge              -->
+      <!-- ============================ -->
+
+      <div id="resultat-juge" hidden>
+
+        <h3>
+          Verdict du modèle juge
+          (<span id="nom-juge">Qwen2.5</span>)
+        </h3>
+
+
+
+        <div
+          id="texte-juge"
+          class="resultat"
+          
+        ></div>
+
+      </div>
+
+    </section>
+      <!-- Actions du test de prompt -->
+      <div id="actions-test-prompt" hidden>
+
+          <button id="confirmer-prompt-test">
+                Confirmer et activer
+          </button>
+
+          <button id="annuler-prompt-test">
+                 Annuler
+          </button>
+          <button id="restaurer-prompt">
+               Restaurer le prompt par défaut
+          </button>
+      </div>
+  </main>
+
+</div>
+
+<script src="/static/app.js"></script>
+
+</body>
+</html>

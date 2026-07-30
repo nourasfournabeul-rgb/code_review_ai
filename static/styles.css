@@ -1,0 +1,1003 @@
+/* ================================= */
+/* PALETTE */
+/* ================================= */
+
+:root {
+    --rose-corail: #c86268;
+    --rose-pastel: #ebaa9c;
+    --vert-sauge: #bfd3c1;
+    --bleu-sarcelle: #3f8b96;
+    --bleu-marine: #1d2951;
+
+    --fond-page: #f4efec;
+    --fond-carte: #ffffff;
+    --fond-douce: #f7f4f1;
+
+    --texte-principal: #1d2951;
+    --texte-secondaire: #5c6b73;
+
+    --bordure: rgba(29, 41, 81, 0.12);
+    --bordure-forte: rgba(29, 41, 81, 0.22);
+}
+
+
+/* ================================= */
+/* RESET */
+/* ================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+
+    margin: 0;
+    padding: 0;
+
+    min-height: 100vh;
+
+    background: var(--fond-page);
+
+    color: var(--texte-principal);
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+}
+
+
+/* ================================= */
+/* BODY */
+/* ================================= */
+
+body {
+
+    display: flex;
+
+    justify-content: center;
+
+    padding: 66px 20px 40px;
+
+}
+
+
+/* ================================= */
+/* MENU HAMBURGER */
+/* ================================= */
+
+.menu-container {
+
+    position: fixed;
+
+    top: 24px;
+
+    left: 22px;
+
+    z-index: 1000;
+
+}
+
+
+/* ================================= */
+/* BOUTON DU MENU */
+/* ================================= */
+
+.menu-button {
+
+    width: 60px;
+
+    height: 60px;
+
+    border: none;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--bleu-sarcelle),
+            var(--bleu-marine)
+        );
+
+    color: white;
+
+    font-size: 32px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0;
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+
+}
+
+
+.menu-button:hover {
+
+    transform: translateY(-2px);
+
+    filter: brightness(1.1);
+
+}
+
+
+/* ================================= */
+/* MENU DÉROULANT */
+/* ================================= */
+
+.menu-dropdown {
+
+    position: absolute;
+
+    top: 70px;
+
+    left: 0;
+
+    width: 230px;
+
+    padding: 8px;
+
+    background: var(--fond-carte);
+
+    border: 1px solid var(--bordure);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 15px 40px rgba(29, 41, 81, 0.18);
+
+    display: none;
+
+}
+
+
+/* Menu ouvert */
+
+.menu-dropdown.open {
+
+    display: block;
+
+}
+
+
+/* Liens du menu */
+
+.menu-dropdown a {
+
+    display: block;
+
+    padding: 13px 14px;
+
+    color: var(--texte-principal);
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-size: 0.95rem;
+
+    transition:
+
+        background 0.2s ease,
+
+        transform 0.2s ease;
+
+}
+
+
+.menu-dropdown a:hover {
+
+    background: var(--vert-sauge);
+
+    transform: translateX(3px);
+
+}
+
+
+/* ================================= */
+/* APPLICATION */
+/* ================================= */
+
+.app-shell {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    background: var(--fond-carte);
+
+    border-radius: 24px;
+
+    border: 1px solid var(--bordure);
+
+    box-shadow:
+        0 20px 60px
+        rgba(29, 41, 81, 0.12);
+
+    overflow: hidden;
+
+}
+
+
+/* ================================= */
+/* HEADER */
+/* ================================= */
+
+header {
+
+    padding: 30px 40px;
+
+    border-bottom: 1px solid var(--bordure);
+
+    background: var(--fond-douce);
+
+}
+
+
+header h1 {
+
+    margin: 0 0 10px;
+
+    font-size:
+        clamp(2rem, 2.5vw, 2.75rem);
+
+    letter-spacing: -0.05em;
+
+    color: var(--bleu-marine);
+
+}
+
+
+header p {
+
+    margin: 0;
+
+    color: var(--texte-secondaire);
+
+    line-height: 1.6;
+
+}
+
+
+/* ================================= */
+/* MAIN */
+/* ================================= */
+
+main {
+
+    display: grid;
+
+    gap: 20px;
+
+    padding: 28px 40px 36px;
+
+}
+
+#message-test-prompt {
+    margin: 0 0 8px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(235, 170, 156, 0.35), rgba(191, 211, 193, 0.35));
+    border: 1px solid var(--bordure);
+    color: var(--texte-principal);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    box-shadow: 0 8px 24px rgba(29, 41, 81, 0.08);
+}
+
+#actions-test-prompt {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+    padding-bottom: 4px;
+}
+
+#actions-test-prompt button {
+    width: auto;
+    min-width: 170px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+#confirmer-prompt-test {
+    background: linear-gradient(135deg, #6fa998, var(--bleu-sarcelle));
+}
+
+#annuler-prompt-test {
+    background: linear-gradient(135deg, var(--rose-pastel), var(--rose-corail));
+}
+
+#restaurer-prompt {
+    background: linear-gradient(135deg, #e8b98f, var(--rose-corail));
+}
+
+
+/* ================================= */
+/* LABELS */
+/* ================================= */
+
+label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 0.95rem;
+
+    color: var(--texte-secondaire);
+
+}
+
+
+/* ================================= */
+/* INPUTS */
+/* ================================= */
+
+input[type="file"],
+select,
+textarea,
+button {
+
+    width: 100%;
+
+    border-radius: 14px;
+
+    border: 1px solid var(--bordure);
+
+    background: var(--fond-douce);
+
+    color: var(--texte-principal);
+
+    font-size: 1rem;
+
+    padding: 14px 16px;
+
+}
+
+
+textarea {
+
+    resize: vertical;
+
+    min-height: 120px;
+
+    line-height: 1.5;
+
+}
+
+
+textarea:focus,
+select:focus {
+
+    outline: none;
+
+    border-color: var(--bleu-sarcelle);
+
+}
+
+
+/* ================================= */
+/* FILE INPUT */
+/* ================================= */
+
+.file-input-wrapper {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    width: 100%;
+
+    border-radius: 14px;
+
+    border: 1px solid var(--bordure);
+
+    background: var(--fond-douce);
+
+    padding: 12px 16px;
+
+}
+
+
+.file-input-wrapper
+#nom-fichier {
+
+    color: var(--texte-secondaire);
+
+    font-size: 0.95rem;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    margin-right: 12px;
+
+}
+
+
+/* ================================= */
+/* BOUTON CHOISIR FICHIER */
+/* ================================= */
+
+.file-button {
+
+    cursor: pointer;
+
+    border: 1px solid var(--bordure);
+
+    border-radius: 10px;
+
+    background: var(--vert-sauge);
+
+    color: var(--bleu-marine);
+
+    padding: 8px 14px;
+
+    font-size: 0.9rem;
+
+    white-space: nowrap;
+
+    transition:
+        background 0.2s ease;
+
+}
+
+
+.file-button:hover {
+
+    background: #a9c4ac;
+
+}
+
+
+/* ================================= */
+/* SELECT */
+/* ================================= */
+
+select {
+
+    cursor: pointer;
+
+}
+
+
+select option {
+
+    background-color: var(--fond-carte);
+
+    color: var(--texte-principal);
+
+}
+
+
+/* ================================= */
+/* BOUTONS */
+/* ================================= */
+
+button {
+
+    position: relative;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--bleu-sarcelle),
+            var(--bleu-marine)
+        );
+
+    border: none;
+
+    color: white;
+
+    font-weight: 600;
+
+    transition:
+
+        transform 0.2s ease,
+
+        filter 0.2s ease;
+
+}
+
+
+button:hover {
+
+    transform: translateY(-1px);
+
+    filter: brightness(1.08);
+
+}
+
+
+/* ================================= */
+/* ACTIONS */
+/* ================================= */
+
+.actions {
+
+    display: grid;
+
+    gap: 12px;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(160px, 1fr)
+        );
+
+    margin-top: 24px;
+
+}
+
+
+/* ================================= */
+/* RESULTATS */
+/* ================================= */
+
+.resultats {
+
+    border-top: 1px solid var(--bordure);
+
+    padding-top: 24px;
+
+}
+
+
+.resultats h2 {
+
+    margin: 0 0 16px;
+
+    font-size: 1.2rem;
+
+    color: var(--bleu-marine);
+
+}
+
+
+.resultats h3 {
+
+    margin: 0 0 10px;
+
+    font-size: 1rem;
+
+    color: var(--bleu-sarcelle);
+
+}
+
+
+/* ================================= */
+/* RESULTAT TEXTE */
+/* ================================= */
+
+.resultat {
+
+    min-height: 260px;
+
+    margin: 0;
+
+    padding: 18px;
+
+    border-radius: 16px;
+
+    background: var(--bleu-marine);
+
+    color: #eef1f5;
+
+    white-space: pre-wrap;
+
+    word-break: break-word;
+
+    overflow-wrap: anywhere;
+
+}
+
+
+/* ================================= */
+/* GRILLE COMPARATIVE */
+/* ================================= */
+
+.comparatif-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 20px;
+
+}
+
+
+/* ================================= */
+/* ZONE PROMPTS */
+/* ================================= */
+
+#zone-prompts {
+
+    display: grid;
+
+    gap: 10px;
+
+}
+
+
+/* ================================= */
+/* PROGRESSION */
+/* ================================= */
+
+.progression {
+
+    min-height: 24px;
+
+    margin: 0;
+
+    color: var(--texte-secondaire);
+
+}
+
+
+/* ================================= */
+/* CLASSEMENT */
+/* ================================= */
+
+#zone-classement {
+
+    margin-top: 24px;
+
+}
+
+
+.affirmation-item {
+
+    display: flex;
+
+    gap: 14px;
+
+    align-items: flex-start;
+
+    padding: 14px;
+
+    margin-bottom: 10px;
+
+    border-radius: 12px;
+
+    background: var(--fond-douce);
+
+    border: 1px solid var(--bordure);
+
+}
+
+
+.affirmation-texte {
+
+    font-weight: 600;
+
+    margin-bottom: 5px;
+
+    color: var(--bleu-marine);
+
+}
+
+
+.affirmation-raison {
+
+    color: var(--texte-secondaire);
+
+    line-height: 1.5;
+
+}
+
+
+.badge-verdict {
+
+    padding: 6px 10px;
+
+    border-radius: 8px;
+
+    font-size: 0.8rem;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+}
+
+
+.badge-vrai {
+
+    background: #d3e8d6;
+
+    color: #2d5c3a;
+
+}
+
+
+.badge-faux {
+
+    background: #f3d6d3;
+
+    color: var(--rose-corail);
+
+}
+
+
+/* ================================= */
+/* HIDDEN */
+/* ================================= */
+
+[hidden] {
+
+    display: none !important;
+
+}
+
+
+/* ================================= */
+/* RESPONSIVE */
+/* ================================= */
+
+@media (max-width: 700px) {
+
+
+    body {
+
+        padding:
+            100px 12px 30px;
+
+    }
+
+
+    .menu-container {
+
+        top: 20px;
+
+        left: 20px;
+
+    }
+
+
+    .app-shell {
+
+        border-radius: 18px;
+
+    }
+
+
+    header {
+
+        padding: 25px 22px;
+
+    }
+
+
+    main {
+
+        padding:
+            24px 22px 30px;
+
+    }
+
+
+    .comparatif-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .menu-button {
+
+        width: 56px;
+
+        height: 56px;
+
+    }
+
+}
+/* ==========================
+   Message de test de prompt
+   ========================== */
+
+.message-test {
+    margin: 0 0 24px 0;
+    padding: 16px 20px;
+
+    background: rgba(63, 139, 150, 0.12);
+    border: 1px solid var(--bleu-sarcelle);
+    border-left: 5px solid var(--bleu-sarcelle);
+
+    border-radius: 12px;
+
+    color: var(--bleu-marine);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+/* =========================================
+   PAGE DE LOGIN — deux panneaux
+   Panneau gauche : extrait réel de main.py
+   Panneau droit  : formulaire de connexion
+   ========================================= */
+
+body.login-page {
+    padding: 0;
+    display: block;
+}
+
+.login-shell {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ================================= */
+/* PANNEAU FORMULAIRE (droite)       */
+/* ================================= */
+
+.login-form-panel {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background: var(--fond-page);
+}
+
+.login-form-card {
+    width: 100%;
+    max-width: 380px;
+    background: var(--fond-carte);
+    border: 1px solid var(--bordure);
+    border-radius: 20px;
+    padding: 40px 32px;
+    box-shadow: 0 20px 60px rgba(29, 41, 81, 0.12);
+    animation: carte-apparait 0.5s ease both;
+}
+
+@keyframes carte-apparait {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-form-card .login-header {
+    padding: 0;
+    border-bottom: none;
+    background: transparent;
+    margin-bottom: 28px;
+}
+
+.login-header h1 {
+    margin: 0 0 8px;
+    font-size: 1.5rem;
+    color: var(--bleu-marine);
+    letter-spacing: -0.02em;
+}
+
+.login-header p {
+    margin: 0 0 28px;
+    color: var(--texte-secondaire);
+    font-size: 0.95rem;
+}
+
+#login-form label {
+    display: block;
+    margin: 0 0 6px;
+    font-size: 0.85rem;
+    color: var(--texte-secondaire);
+}
+
+#login-form input {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    border: 1px solid var(--bordure);
+    background: var(--fond-douce);
+    color: var(--texte-principal);
+    font-size: 0.95rem;
+    font-family: inherit;
+}
+
+#login-form input:focus {
+    outline: none;
+    border-color: var(--bleu-sarcelle);
+    box-shadow: 0 0 0 3px rgba(63, 139, 150, 0.15);
+}
+
+#login-form button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--bleu-sarcelle), var(--bleu-marine));
+    color: white;
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+#login-form button:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.05);
+}
+
+#message-login:empty {
+    display: none;
+}
+
+#message-login:not(:empty) {
+    margin-top: 16px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: rgba(200, 98, 104, 0.1);
+    border-left: 3px solid var(--rose-corail);
+    color: #8a2e33;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+
+/* ================================= */
+/* RESPONSIVE                        */
+/* ================================= */
+
+@media (max-width: 900px) {
+    .login-shell {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+   
+    .login-form-panel {
+        min-height: 100vh;
+    }
+}
+
+
+/* ================================= */
+/* MOUVEMENT RÉDUIT                  */
+/* ================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .cursor {
+        animation: none;
+    }
+
+    .login-form-card {
+        animation: none;
+    }
+}

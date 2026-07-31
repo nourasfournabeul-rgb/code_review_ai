@@ -10,8 +10,7 @@ Analysez vos fichiers de code avec des modèles de langage open-source (LLMs) ex
 
 | Fonctionnalité | Endpoint | Description |
 |---|---|---|
-| **Explication** | `POST /expliquer` | Explication claire de la logique du code, de
-s fonctions et de l'objectif global |
+| **Explication** | `POST /expliquer` | Explication claire de la logique du code, des fonctions et de l'objectif global |
 | **Mauvaises pratiques** | `POST /mauvaises-pratiques` | Détection des failles de sécurité, conventions de nommage, complexité algorithmique |
 | **Améliorations** | `POST /ameliorations` | Suggestions de refactoring concrètes avec justifications |
 | **Résumé** | `POST /resume` | Synthèse courte (4-6 lignes) : rôle, points forts, faiblesses |
